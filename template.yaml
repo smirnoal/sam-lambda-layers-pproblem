@@ -12,6 +12,8 @@ Resources:
       CodeUri: functions/lambda_function_1/
       Handler: app.lambda_handler
       Runtime: python3.8
+      Layers:
+        - !Ref LambdaCommonCode
 
   Function2:
     Type: AWS::Serverless::Function
@@ -19,6 +21,8 @@ Resources:
       CodeUri: functions/lambda_function_2/
       Handler: app.lambda_handler
       Runtime: python3.8
+      Layers:
+        - !Ref LambdaCommonCode
 
   Function3:
     Type: AWS::Serverless::Function
@@ -26,3 +30,15 @@ Resources:
       CodeUri: functions/lambda_function_3/
       Handler: app.lambda_handler
       Runtime: python3.8
+      Layers:
+        - !Ref LambdaCommonCode
+
+  LambdaCommonCode:
+    Type: AWS::Serverless::LayerVersion
+    Metadata:
+      BuildMethod: python3.8
+    Properties:
+      LayerName: lambda_common_code
+      ContentUri: layers/
+      CompatibleRuntimes:
+        - python3.8
