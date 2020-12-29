@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-app
+
+  Sample SAM Template for sam-app
+
+Resources:
+  Function1:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/lambda_function_1/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+
+  Function2:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/lambda_function_2/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+
+  Function3:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/lambda_function_3/
+      Handler: app.lambda_handler
+      Runtime: python3.8
